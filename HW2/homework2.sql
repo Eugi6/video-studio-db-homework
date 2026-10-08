@@ -39,9 +39,16 @@ CREATE TABLE payment (
 );
 
 -- Изменение структуры таблиц
+ALTER TABLE client ADD COLUMN phone VARCHAR(20);
+ALTER TABLE client ADD COLUMN email VARCHAR(100);
 ALTER TABLE employee ADD COLUMN email VARCHAR(100);
+ALTER TABLE employee ADD COLUMN phone VARCHAR(20);
 ALTER TABLE studio_order ADD COLUMN created_at TIMESTAMP;
+ALTER TABLE studio_order ADD COLUMN status VARCHAR(30) NOT NULL DEFAULT 'new';
+ALTER TABLE studio_order ADD COLUMN deadline DATE;
 ALTER TABLE crew ADD COLUMN role VARCHAR(30);
+ALTER TABLE video ADD COLUMN duration_seconds INTEGER;
+ALTER TABLE video ADD COLUMN file_path TEXT;
 
 -- Тестовые данные
 INSERT INTO client (client_id, name) VALUES (1, 'Валера');
